@@ -1,0 +1,265 @@
+.hero-section {
+  text-align: center;
+  padding: 120px 24px 90px;
+background-color: #edf7ff;
+  background:
+    linear-gradient(
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.12)
+    ),
+    url("/hero-banner.webp");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-section h1 {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 35px;
+  line-height: 1.15;
+  font-weight: 520;
+  letter-spacing: -1.2px;
+}
+
+.why-section {
+  background: #f7fbff;
+}
+
+.focus-section {
+  background: #ffffff;
+}
+
+.why-grid,
+.focus-grid,
+.about-grid,
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.why-card,
+.focus-item,
+.about-card,
+.products-grid div {
+  background: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow:0 10px 30px rgba(43, 126, 201, 0.08);
+}
+
+.icon {
+  margin-bottom: 16px;
+  color: #1f7ae0;
+  font-size: 20px;
+}
+
+.why-card h3 {
+  color: #111111;
+}
+
+.why-card p {
+  color: #666666;
+  line-height: 1.7;
+}
+
+.focus-item {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+}
+.hero-subtitle {
+  max-width: 760px;
+  margin: 28px auto 0;
+  color: #667085;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #1177ee 0%, #39a4ff 100%);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.cta-button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.home-page h2 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 520;
+  letter-spacing: -1px;
+}
+
+.why-section,
+.focus-section,
+.cta-section {
+  padding: 110px 56px;
+}
+
+.cta-section {
+  text-align: center;
+  background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+}
+
+.cta-section p {
+  max-width: 760px;
+  margin: 24px auto 0;
+  color: #667085;
+  line-height: 1.8;
+  font-size: 18px;
+}
+.focus-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.focus-icon {
+  width: 42px;
+  height: 42px;
+  display: inline-block;
+  position: relative;
+  color: #1f7ae0;
+}
+
+/* Labels */
+.labels-icon::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 22px;
+  border: 2px solid currentColor;
+  border-radius: 8px;
+  left: 5px;
+  top: 10px;
+}
+
+.labels-icon::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  left: 12px;
+  top: 17px;
+}
+
+/* Printer */
+.printer-icon::before {
+  content: "";
+  position: absolute;
+  width: 32px;
+  height: 22px;
+  border: 2px solid currentColor;
+  border-radius: 8px;
+  left: 4px;
+  top: 12px;
+}
+
+.printer-icon::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 4px;
+  background: currentColor;
+  border-radius: 99px;
+  left: 11px;
+  top: 7px;
+}
+
+/* Software */
+.software-icon::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 2px solid currentColor;
+  border-radius: 10px;
+  left: 5px;
+  top: 5px;
+}
+
+.software-icon::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: currentColor;
+  border-radius: 4px;
+  left: 15px;
+  top: 15px;
+}
+
+/* Design */
+.design-icon::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 6px;
+  background: currentColor;
+  border-radius: 99px;
+  transform: rotate(-35deg);
+  left: 6px;
+  top: 18px;
+}
+
+/* Preprint */
+.preprint-icon::before {
+  content: "";
+  position: absolute;
+  width: 32px;
+  height: 24px;
+  border: 2px solid currentColor;
+  border-radius: 8px;
+  left: 4px;
+  top: 9px;
+  background: repeating-linear-gradient(
+    to bottom,
+    currentColor 0,
+    currentColor 2px,
+    transparent 2px,
+    transparent 6px
+  );
+}
+
+/* Labware */
+.labware-icon::before {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 30px;
+  border-radius: 6px;
+  background: currentColor;
+  left: 10px;
+  top: 6px;
+}
+
+.labware-icon::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 30px;
+  border-radius: 6px;
+  background: #39a4ff;
+  left: 24px;
+  top: 6px;
+}
