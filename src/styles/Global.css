@@ -1,14 +1,126 @@
+:root {
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  color: #10243e;
+  background: #f8fbfe;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --ink: #10243e;
+  --muted: #5f7187;
+  --blue: #0878d1;
+  --blue-dark: #075c9d;
+  --cyan: #25bde3;
+  --line: #dce8f1;
+  --page: min(1180px, calc(100% - 48px));
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  font-family: Inter, sans-serif;
-  background: #f4f8fc;
-  color: #111111;
+  min-width: 320px;
+  background: #f8fbfe;
+  color: var(--ink);
 }
 
-section {
-  padding: 120px 24px;
+button,
+input,
+select,
+textarea {
+  font: inherit;
 }
 
-h1, h2, h3 {
+a {
+  color: inherit;
+}
+
+main {
+  overflow: hidden;
+}
+
+.section {
+  padding: 104px max(24px, calc((100% - 1180px) / 2));
+}
+
+.eyebrow {
+  margin: 0 0 16px;
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.section-heading {
+  max-width: 720px;
+  margin-bottom: 48px;
+}
+
+.section-heading h2,
+.capability-copy h2,
+.case-preview h2,
+.final-cta h2 {
   margin: 0;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.06;
+  letter-spacing: -0.04em;
+}
+
+.section-heading > p:last-child,
+.capability-copy > p,
+.case-preview p,
+.final-cta > p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0 24px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 750;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button.primary {
+  background: linear-gradient(135deg, var(--blue), #109de0);
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(8, 120, 209, 0.22);
+}
+
+.button.secondary {
+  border-color: #b9cfe0;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--ink);
+}
+
+.button.light {
+  flex-shrink: 0;
+  background: #fff;
+  color: var(--blue-dark);
+}
+
+@media (max-width: 720px) {
+  :root {
+    --page: min(100% - 32px, 1180px);
+  }
+
+  .section {
+    padding: 76px 20px;
+  }
 }

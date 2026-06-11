@@ -1,22 +1,133 @@
 .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  min-height: 78px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  padding: 28px 48px;
-  border-bottom: 1px solid #eeeeee;
+  gap: 32px;
+  padding: 14px max(24px, calc((100% - 1180px) / 2));
+  border-bottom: 1px solid rgba(220, 232, 241, 0.9);
+  background: rgba(248, 251, 254, 0.92);
+  backdrop-filter: blur(18px);
 }
 
-.navbar nav {
-  display: flex;
-  gap: 35px;
-}
-
-.navbar a {
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
   text-decoration: none;
-  color: #111111;
 }
-.logo img {
-  margin-top: -13px;
-  height: 60px;
-  width: auto;
+
+.brand-mark {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px 13px 18px 18px;
+  background: linear-gradient(145deg, #055ea8, #20b8e3);
+  color: #fff;
+  font-size: 25px;
+  font-weight: 850;
+  font-style: italic;
+  box-shadow: 0 8px 18px rgba(8, 120, 209, 0.2);
+}
+
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-copy strong {
+  font-size: 19px;
+  letter-spacing: 0.18em;
+}
+
+.brand-copy small {
+  margin-top: 2px;
+  color: #6a7d92;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-links > a {
+  color: #385069;
+  font-size: 14px;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.nav-links > a:hover,
+.nav-links > a.active {
+  color: var(--blue);
+}
+
+.nav-links .nav-cta {
+  padding: 12px 18px;
+  border-radius: 7px;
+  background: var(--ink);
+  color: #fff;
+}
+
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.menu-toggle span {
   display: block;
+  width: 20px;
+  height: 2px;
+  margin: 4px auto;
+  background: var(--ink);
+}
+
+@media (max-width: 860px) {
+  .navbar {
+    min-height: 70px;
+    padding: 12px 20px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    right: 0;
+    display: none;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0;
+    padding: 12px 20px 22px;
+    border-bottom: 1px solid var(--line);
+    background: #f8fbfe;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links > a {
+    padding: 13px 4px;
+  }
+
+  .nav-links .nav-cta {
+    margin-top: 8px;
+    text-align: center;
+  }
 }

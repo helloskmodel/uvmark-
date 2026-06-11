@@ -1,71 +1,38 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/Products.css";
 
-const applications = [
-  "Tubes & Vials",
-  "Microscope Slides",
-  "Cryoboxes",
-  "Bottles",
-  "Metal Racks",
-  "PCR Tubes & Strips",
-  "Microplates",
-  "Blood Bags",
-  "IVF Straws",
-];
-
-const resistance = [
-  "Cryogenic (-196°C)",
-  "Deep-Freeze (-80°C)",
-  "High Heat Labels",
-  "Chemical Resistant Labels",
-  "Hazard Communication Labels",
-  "Tamper Evident Labels",
-  "Abrasion Resistant Labels",
-  "Sterilization Labels",
-  "Moisture Resistant Labels",
-];
-
-const features = [
-  "Removable",
-  "Self-Laminating",
-  "Automation",
-  "RFID",
+const groups = [
+  {
+    title: "By Application",
+    description: "Fit the label geometry and adhesive to the item being identified.",
+    items: ["Tubes & Vials", "Microscope Slides", "Cryoboxes", "PCR Tubes & Strips", "Microplates", "Blood Bags", "IVF Straws"],
+  },
+  {
+    title: "By Environment",
+    description: "Select materials based on storage, processing, and exposure conditions.",
+    items: ["Cryogenic (-196°C)", "Deep-Freeze (-80°C)", "Chemical Resistant", "High Heat", "Sterilization", "Moisture Resistant"],
+  },
+  {
+    title: "By Workflow",
+    description: "Support the data, handling, and traceability requirements around the label.",
+    items: ["Automation", "RFID", "Self-Laminating", "Tamper Evident", "Removable", "Hazard Communication"],
+  },
 ];
 
 const services = [
-  {
-    title: "Label Design",
-    text: "Custom label layout, barcode structure, color coding, and application-focused design support.",
-  },
-  {
-    title: "Pre-Printed Labels",
-    text: "Pre-printed labels with barcodes, serialization, variable data, and workflow-specific information.",
-  },
-  {
-    title: "Pre-Labeled Labware",
-    text: "Pre-applied labels for tubes, vials, plates, bottles, and laboratory consumables.",
-  },
+  { title: "Label Design", text: "Application-focused dimensions, layout, barcode structure, color coding, and material selection." },
+  { title: "Pre-Printed Labels", text: "Serialized, variable-data, barcode, and workflow-specific labels supplied ready to use." },
+  { title: "Pre-Labeled Labware", text: "Labels applied to customer-selected tubes, vials, plates, bottles, and consumables." },
 ];
 
-function Pill({ children }) {
+function InquiryLink({ children }) {
   return (
-    <a href="#" className="product-pill">
+    <Link
+      to={`/contact?application=${encodeURIComponent(children)}`}
+      className="product-pill"
+    >
       {children}
-    </a>
-  );
-}
-
-function CategoryBlock({ title, items }) {
-  return (
-    <div className="product-card">
-      <h3>{title}</h3>
-
-      <div className="pill-group">
-        {items.map((item) => (
-          <Pill key={item}>{item}</Pill>
-        ))}
-      </div>
-    </div>
+    </Link>
   );
 }
 
@@ -73,99 +40,89 @@ export default function Products() {
   return (
     <main className="products-page">
       <section className="products-hero">
-        
-
-        <h1>Durable Labels. Reliable Performance.</h1>
-
+        <p className="eyebrow">PRODUCTS &amp; WORKFLOW SERVICES</p>
+        <h1>Build an identification system around the real application.</h1>
         <p className="products-intro">
-          Durable labeling products and workflow support services for
-          laboratories, clinical trials, and critical identification applications.
+          Labels, printers, scanners, software, and implementation support for
+          laboratory environments where readability and traceability matter.
         </p>
+        <Link className="button primary" to="/contact">Discuss Your Requirements</Link>
       </section>
 
-      <section className="products-section white-section">
+      <section className="products-section" id="applications">
         <div className="products-container">
-          <div className="section-title">
-            <h2>Comprehensive Label Portfolio</h2>
+          <div className="section-heading">
+            <p className="eyebrow">LABORATORY LABELS</p>
+            <h2>Start with the surface and conditions.</h2>
+            <p>Choose a category below to include it in your inquiry.</p>
           </div>
-
           <div className="label-grid">
-            <CategoryBlock title="By Application" items={applications} />
-            <CategoryBlock title="By Resistance" items={resistance} />
-            <CategoryBlock title="By Feature" items={features} />
+            {groups.map((group) => (
+              <article className="product-card" key={group.title}>
+                <h3>{group.title}</h3>
+                <p>{group.description}</p>
+                <div className="pill-group">
+                  {group.items.map((item) => <InquiryLink key={item}>{item}</InquiryLink>)}
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="products-section gradient-section">
-        <div className="products-container hardware-grid">
-          <div className="product-card">
-            <h2>Printers / Scanners</h2>
-
+      <section className="systems-section" id="hardware">
+        <div className="products-container systems-grid">
+          <div className="systems-intro">
+            <p className="eyebrow">PRINTING &amp; DATA CAPTURE</p>
+            <h2>The label is only one part of the system.</h2>
             <p>
-              Healthcare-grade printers, barcode scanners, scan & print devices,
-              ribbons, and accessories supported with installation,
-              configuration, and workflow support services.
+              We support printer, ribbon, scanner, and software selection so the
+              finished workflow produces consistent, readable identification.
             </p>
-
-            <div className="pill-group">
-              <Pill>Zebra Healthcare Series</Pill>
-              <Pill>TSC Healthcare & Industrial Series</Pill>
-              <Pill>Honeywell Barcode Scanners</Pill>
-              <Pill>Scan & Print Devices</Pill>
-            </div>
           </div>
-
-          <div className="product-card">
-            <h2>Software</h2>
-
-            <p>
-              BarTender is powerful label design software for creating,
-              printing, and automating barcodes, labels, and RFID tags.
-              Supported with installation, configuration, and workflow setup
-              services for laboratory and clinical labeling applications.
-            </p>
-
-            <div className="pill-group">
-              <Pill>BarTender Label Design</Pill>
-              <Pill>Barcode Automation</Pill>
-              <Pill>RFID Support</Pill>
-              <Pill>Installation & Configuration</Pill>
-            </div>
-          </div>
+          <article>
+            <span>01</span>
+            <h3>Printers &amp; Ribbons</h3>
+            <p>Zebra and TSC healthcare or industrial printing systems, matched with application-appropriate ribbons.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Scanners &amp; Devices</h3>
+            <p>Honeywell scanners and scan-and-print configurations for practical point-of-use workflows.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Label Software</h3>
+            <p>BarTender design, database connections, barcode setup, RFID support, and print automation.</p>
+          </article>
         </div>
       </section>
 
-      <section className="products-section white-section">
+      <section className="products-section" id="services">
         <div className="products-container">
-          <div className="section-title">
-            <h2>Workflow Support Services</h2>
+          <div className="section-heading">
+            <p className="eyebrow">VALUE-ADDED SERVICES</p>
+            <h2>Reduce the work between ordering and applying.</h2>
           </div>
-
           <div className="service-grid">
-            {services.map((service) => (
-              <div className="product-card service-card" key={service.title}>
+            {services.map((service, index) => (
+              <article className="service-card" key={service.title}>
+                <span>0{index + 1}</span>
                 <h3>{service.title}</h3>
                 <p>{service.text}</p>
-
-                <a
-                  href="mailto:support@uvmarksolution.com"
-                  className="learn-more"
-                >
-                  Learn More →
-                </a>
-              </div>
+                <Link to={`/contact?application=${encodeURIComponent(service.title)}`}>
+                  Request information →
+                </Link>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
       <section className="products-cta">
-        <h2>Need Help? Contact Our Labeling Specialists.</h2>
-
-        <a href="/contact" className="cta-button">
-          Contact Us
-        </a>
+        <p className="eyebrow">NOT SURE WHERE TO START?</p>
+        <h2>Send us the container, temperature, chemical exposure, and print requirements.</h2>
+        <Link className="button primary" to="/contact">Ask a Labeling Specialist</Link>
       </section>
     </main>
   );
